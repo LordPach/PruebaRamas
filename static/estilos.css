@@ -1,0 +1,115 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8; /* Blanco suave */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: #fff; /* Blanco */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #d4af37; /* Dorado */
+}
+
+.logo {
+    color: #d4af37; /* Dorado */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #d4af37; /* Dorado */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Contenido principal */
+.contenido {
+    background-color: #f8f8f8; /* Blanco suave */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.contenido-center {
+    background-color: #fff; /* Blanco */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Footer */
+.footer {
+    background-color: #fff; /* Blanco */
+    color: #d4af37; /* Dorado */
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #d4af37; /* Dorado */
+}
+
+/* Formulario (login y registro) */
+.form-section {
+    background-color: #fff; /* Blanco */
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid #d4af37; /* Dorado */
+}
+
+.form-section h2 {
+    color: #d4af37; /* Dorado */
+    margin-bottom: 20px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario input {
+    padding: 10px;
+    border: 2px solid #d4af37; /* Dorado */
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.formulario input:focus {
+    outline: 2px solid #d4af37; /* Dorado */
+}
+
+/* Botón de enviar */
+.enviar-btn {
+    background-color: #d4af37; /* Dorado */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enviar-btn:hover {
+    background-color: #b8860b; /* Dorado más oscuro */
+}

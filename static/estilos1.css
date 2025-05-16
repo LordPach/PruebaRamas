@@ -1,0 +1,145 @@
+/* General */
+body, html {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* ✅ Previene la aparición de la barra blanca lateral */
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid gold;
+    max-width: 100vw; /* ✅ Asegura que no haya desbordamientos horizontales */
+}
+
+/* Logo */
+.logo {
+    color: gold;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid gold;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* 🔹 Enlaces de navegación */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* 🔹 Hace que el nombre de usuario sea visible en dorado */
+.nav-links span {
+    color: gold;
+    font-weight: bold;
+    margin-right: 10px;
+    padding: 5px;
+    border: 2px solid gold;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+.nav-links a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Área de contenido principal */
+.contenido {
+    background-color: #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    flex: 1;
+    box-sizing: border-box;
+    border: 2px solid gold;
+    max-width: 100vw; /* ✅ Asegura que no haya desbordamientos laterales */
+}
+
+/* Sección de subir archivo */
+.upload-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid gold;
+}
+
+.upload-section label {
+    color: gold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.upload-section input[type="file"] {
+    width: 100%;
+}
+
+/* Sección de texto */
+.text-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    border: 2px solid gold;
+}
+
+.text-section label {
+    color: gold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.text-section textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    resize: vertical;
+    border: 2px solid gold;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+/* Botón */
+.enviar-btn {
+    background-color: #ffffff;
+    color: gold;
+    padding: 12px 20px;
+    border: 2px solid gold;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.enviar-btn:hover {
+    background-color: #e8e8e8;
+}
+
+/* 🔹 Footer */
+.footer {
+    background-color: #ffffff;
+    color: gold;
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid gold;
+    position: relative; /* ✅ Mantiene el footer en su lugar */
+    width: 100%;
+    max-width: 100vw; /* ✅ Previene desbordamientos horizontales */
+}
