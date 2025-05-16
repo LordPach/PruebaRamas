@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - ZPlage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}?v=1">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="{{ url_for('mostrar_principal') }}">ZPlage</a>  
+            <div class="nav-links">
+                <a href="{{ url_for('mostrar_register') }}">Regístrate</a> 
+                <a href="{{ url_for('mostrar_login') }}">Iniciar Sesión</a> 
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido-center">
+        <section class="form-section">
+            <h2>Iniciar Sesión</h2>
+            <form id="formLogin" class="formulario">
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit" class="enviar-btn">Entrar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 ZPlage
+    </footer>
+
+    <script>
+        document.getElementById("formLogin").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario
+
+            const formData = {
+                email: document.querySelector('input[name="email"]').value,
+                password: document.querySelector('input[name="password"]').value
+            };
+
+            try {
+                const response = await fetch("http://127.0.0.1:5000/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                console.log("📌 Respuesta recibida:", data); // 👀 Verificar en la consola
+
+                if (response.ok) {
+                    alert("✅ Inicio de sesión exitoso");
+                    location.href = data.redirect; // Usar la redirección enviada desde Flask
+                } else {
+                    alert(`❌ Error en login: ${data.error}`);
+                }
+            } catch (error) {
+                console.error("❌ Error en la solicitud:", error);
+                alert("❌ Hubo un problema al iniciar sesión.");
+            }
+        });
+    </script>
+
+</body>
+</html>

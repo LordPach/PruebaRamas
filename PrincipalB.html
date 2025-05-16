@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZPlage - Subir Documentos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos1.css') }}">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{{ url_for('mostrar_principalB') }}">ZPlage</a> 
+            </div>
+            <div class="nav-links">
+                <span>{{ username }}</span>
+                <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        <section class="upload-section">
+            <label for="archivo">Sube tu documento:</label>
+            <input type="file" id="archivo" accept=".pdf, .doc, .docx">
+        </section>
+
+        <section class="text-section">
+            <label for="texto">O ingresa el texto aquí:</label>
+            <textarea id="texto" placeholder="Escribe tu texto aquí..."></textarea>
+        </section>
+
+        <button class="enviar-btn">Enviar</button>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 ZPlage
+    </footer>
+
+</body>
+</html>

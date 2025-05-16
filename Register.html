@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - ZPlage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="{{ url_for('mostrar_principal') }}">ZPlage</a>  
+            <div class="nav-links">
+                <a href="{{ url_for('mostrar_register') }}">Regístrate</a> 
+                <a href="{{ url_for('mostrar_login') }}">Iniciar Sesión</a> 
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido-center">
+        <section class="form-section">
+            <h2>Crear Cuenta</h2>
+            <form id="formRegistro" class="formulario">
+                <input type="text" name="nombre" placeholder="Nombre de usuario" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="confirmar_contraseña" placeholder="Confirmar contraseña" required>
+                <button type="submit" class="enviar-btn">Registrarse</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 ZPlage
+    </footer>
+
+    <script>
+        document.getElementById("formRegistro").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario
+
+            const formData = {
+                nombre: document.querySelector('input[name="nombre"]').value,
+                email: document.querySelector('input[name="email"]').value,
+                password: document.querySelector('input[name="password"]').value,
+                confirmar_contraseña: document.querySelector('input[name="confirmar_contraseña"]').value
+            };
+
+            // Verificar que las contraseñas coincidan antes de enviarlas
+            if (formData.password !== formData.confirmar_contraseña) {
+                alert("❌ Las contraseñas no coinciden.");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://127.0.0.1:5000/registro", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                alert(data.mensaje || data.error);
+
+                if (response.ok) {
+                    location.href = "{{ url_for('mostrar_login') }}"; // ✅ Corregido para redirigir al login
+                }
+            } catch (error) {
+                console.error("❌ Error en la solicitud:", error);
+                alert("❌ Hubo un problema al registrarse.");
+            }
+        });
+    </script>
+
+</body>
+</html>
